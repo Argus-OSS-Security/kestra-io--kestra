@@ -1,22 +1,23 @@
 name: Main Workflow
 
-on:
-  push:
-    branches:
-      - releases/*
-      - develop
-
-  workflow_dispatch:
-    inputs:
-      skip-test:
-        description: 'Skip test'
-        type: choice
-        required: true
-        default: 'false'
-        options:
-          - "true"
-          - "false"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - releases/*
+#       - develop
+# 
+#   workflow_dispatch:
+#     inputs:
+#       skip-test:
+#         description: 'Skip test'
+#         type: choice
+#         required: true
+#         default: 'false'
+#         options:
+#           - "true"
+#           - "false"
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-main
   cancel-in-progress: true

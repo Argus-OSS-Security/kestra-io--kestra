@@ -1,13 +1,14 @@
 name: Sync slot-contracts to artifact-sdk
 
-on:
-  push:
-    branches:
-      - main
-      - develop
-    paths:
-      - "ui/packages/slot-contracts/src/**"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - main
+#       - develop
+#     paths:
+#       - "ui/packages/slot-contracts/src/**"
+# 
 jobs:
   sync:
     name: Sync contracts to kestra-io/artifact-sdk

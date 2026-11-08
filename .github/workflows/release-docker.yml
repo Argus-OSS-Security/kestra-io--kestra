@@ -1,29 +1,30 @@
 name: Publish docker
 
-on:
-  workflow_dispatch:
-    inputs:
-      retag-latest:
-        description: 'Retag latest Docker images'
-        required: true
-        type: boolean
-        default: false
-      retag-lts:
-        description: 'Retag LTS Docker images'
-        required: true
-        type: boolean
-        default: false
-      dry-run:
-        description: 'Dry run mode that will not write or release anything'
-        required: true
-        type: boolean
-        default: false
-      java-version:
-        description: "Java version"
-        type: string
-        default: '25'
-        required: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       retag-latest:
+#         description: 'Retag latest Docker images'
+#         required: true
+#         type: boolean
+#         default: false
+#       retag-lts:
+#         description: 'Retag LTS Docker images'
+#         required: true
+#         type: boolean
+#         default: false
+#       dry-run:
+#         description: 'Dry run mode that will not write or release anything'
+#         required: true
+#         type: boolean
+#         default: false
+#       java-version:
+#         description: "Java version"
+#         type: string
+#         default: '25'
+#         required: false
+# 
 jobs:
   publish-docker:
     name: Publish Docker

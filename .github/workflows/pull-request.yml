@@ -1,8 +1,9 @@
 name: Pull Request Workflow
 
-on:
-  pull_request:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}-pr
   cancel-in-progress: true

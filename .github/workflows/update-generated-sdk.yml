@@ -1,11 +1,12 @@
 name: Update Generated SDK
 
-on:
-  push:
-    branches:
-      - develop
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - develop
+#   workflow_dispatch:
+# 
 concurrency:
   group: update-generated-sdk-${{ github.repository }}
   cancel-in-progress: false

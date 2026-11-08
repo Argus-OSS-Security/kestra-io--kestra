@@ -2,11 +2,12 @@
 
 name: Contributor Onboarding
 
-on:
-  pull_request_target:
-    types: [opened, closed]
-
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request_target:
+#     types: [opened, closed]
+# 
+# 
 permissions: {}
 
 jobs:

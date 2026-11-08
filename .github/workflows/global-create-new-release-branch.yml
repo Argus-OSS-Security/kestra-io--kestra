@@ -1,16 +1,17 @@
 name: Create new release branch
 run-name: "Create new release branch Kestra ${{ github.event.inputs.releaseVersion }} 🚀"
-on:
-  workflow_dispatch:
-    inputs:
-      releaseVersion:
-        description: 'The release version (e.g., 0.21.0)'
-        required: true
-        type: string
-      nextVersion:
-        description: 'The next version (e.g., 0.22.0-SNAPSHOT)'
-        required: true
-        type: string
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       releaseVersion:
+#         description: 'The release version (e.g., 0.21.0)'
+#         required: true
+#         type: string
+#       nextVersion:
+#         description: 'The next version (e.g., 0.22.0-SNAPSHOT)'
+#         required: true
+#         type: string
 env:
   RELEASE_VERSION: "${{ github.event.inputs.releaseVersion }}"
   NEXT_VERSION: "${{ github.event.inputs.nextVersion }}"

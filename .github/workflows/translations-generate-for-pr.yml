@@ -19,14 +19,15 @@ name: Translations - Generate for a pull request
 # PR allows edits from maintainers and the TRANSLATIONS_PUSH_TOKEN secret holds a maintainer token,
 # the commit is pushed straight onto the PR branch; otherwise the run leaves the commit as a patch
 # artifact and says so on the PR.
-on:
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: "Number of the pull request to generate translations for"
-        required: true
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       pr_number:
+#         description: "Number of the pull request to generate translations for"
+#         required: true
+#         type: string
+# 
 concurrency:
   group: translations-generate-for-pr-${{ inputs.pr_number }}
   cancel-in-progress: false

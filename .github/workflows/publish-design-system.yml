@@ -1,34 +1,35 @@
 name: Publish Design System
 
-on:
-  workflow_dispatch:
-    inputs:
-      increment:
-        description: Version increment
-        required: true
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
-      package:
-        description: What package to publish (publish plumage first when design-system relies on a plumage change not yet on npm)
-        required: true
-        type: choice
-        options:
-          - design-system
-          - topology
-          - plumage
-
-      skip-test:
-        description: "Skip test"
-        required: false
-        type: choice
-        options:
-          - "true"
-          - "false"
-        default: "false"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       increment:
+#         description: Version increment
+#         required: true
+#         type: choice
+#         options:
+#           - patch
+#           - minor
+#           - major
+#       package:
+#         description: What package to publish (publish plumage first when design-system relies on a plumage change not yet on npm)
+#         required: true
+#         type: choice
+#         options:
+#           - design-system
+#           - topology
+#           - plumage
+# 
+#       skip-test:
+#         description: "Skip test"
+#         required: false
+#         type: choice
+#         options:
+#           - "true"
+#           - "false"
+#         default: "false"
+# 
 permissions:
   contents: write
   id-token: write

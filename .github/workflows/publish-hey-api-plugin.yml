@@ -14,18 +14,19 @@ name: Release hey-api-plugin
 #
 # The released version is whatever is in ui/packages/hey-api-plugin/package.json — bump that in a
 # normal commit first, then dispatch this workflow. It fails if the tag already exists (bump first).
-on:
-  workflow_dispatch:
-    inputs:
-      skip-test:
-        description: "Skip typecheck"
-        required: false
-        type: choice
-        options:
-          - "true"
-          - "false"
-        default: "false"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       skip-test:
+#         description: "Skip typecheck"
+#         required: false
+#         type: choice
+#         options:
+#           - "true"
+#           - "false"
+#         default: "false"
+# 
 permissions:
   contents: read
 

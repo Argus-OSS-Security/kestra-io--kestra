@@ -1,21 +1,22 @@
 name: Security scan
 
-on:
-  push:
-    branches:
-      - releases/*
-      - develop
-
-  pull_request:
-
-  workflow_dispatch:
-    inputs:
-      metadata:
-        description: 'Extra key=value pairs added to every finding, one per line'
-        required: false
-        type: string
-        default: ''
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - releases/*
+#       - develop
+# 
+#   pull_request:
+# 
+#   workflow_dispatch:
+#     inputs:
+#       metadata:
+#         description: 'Extra key=value pairs added to every finding, one per line'
+#         required: false
+#         type: string
+#         default: ''
+# 
 permissions:
   contents: read
   actions: read

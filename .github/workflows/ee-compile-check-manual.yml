@@ -6,13 +6,14 @@ name: EE compile check via Kestra webhook (manual)
 # branch/tag/SHA. Both entry points share the same composite action:
 # .github/actions/ee-compile-check.
 
-on:
-  workflow_dispatch:
-    inputs:
-      ref:
-        description: "Branch, tag, or SHA to compile"
-        required: true
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       ref:
+#         description: "Branch, tag, or SHA to compile"
+#         required: true
+# 
 concurrency:
   group: ee-compile-check-manual-${{ github.ref }}
   cancel-in-progress: true

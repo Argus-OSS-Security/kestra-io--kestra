@@ -5,16 +5,17 @@ name: Translations - Push
 # branch red, and nobody notices until the next unrelated PR against it fails the gate for its
 # author. This runs the same dependency-free check on every push to develop and the release
 # branches, so the branch itself reports the breakage.
-on:
-  push:
-    branches:
-      - develop
-      - 'releases/*'
-    paths:
-      # The used-key rule scans all of ui/src, so any UI change can introduce a key defined nowhere.
-      - 'ui/**'
-      - '.github/workflows/translations-push.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - develop
+#       - 'releases/*'
+#     paths:
+#       # The used-key rule scans all of ui/src, so any UI change can introduce a key defined nowhere.
+#       - 'ui/**'
+#       - '.github/workflows/translations-push.yml'
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true

@@ -1,33 +1,34 @@
 name: Auto-Translate UI keys and create PR
 
-on:
-  schedule:
-    - cron: "0 9-21/3 * * 1-5"  # Every 3 hours from 9 AM to 9 PM, Monday to Friday
-  workflow_dispatch:
-    inputs:
-      retranslate_modified_keys:
-        description: "Force a full re-translation of every key, ignoring the fingerprints. Keys whose English source changed are re-translated automatically without this."
-        type: choice
-        options:
-          - "false"
-          - "true"
-        default: "false"
-        required: false
-      # Keep these options in step with the branch list in the `plan` job.
-      branch:
-        description: "Branch to translate, or all for every branch in the list"
-        type: choice
-        options:
-          - "develop"
-          - "releases/v2.0.x"
-          - "releases/v1.3.x"
-          - "all"
-        default: "develop"
-        required: false
-
-# Scheduled runs fire every three hours and each one opens its own timestamped branch. Without a
-# concurrency group two overlapping runs generate the same change and open two PRs for it, leaving
-# the loser with an empty diff once the winner merges — see kestra-io/kestra#17822.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     - cron: "0 9-21/3 * * 1-5"  # Every 3 hours from 9 AM to 9 PM, Monday to Friday
+#   workflow_dispatch:
+#     inputs:
+#       retranslate_modified_keys:
+#         description: "Force a full re-translation of every key, ignoring the fingerprints. Keys whose English source changed are re-translated automatically without this."
+#         type: choice
+#         options:
+#           - "false"
+#           - "true"
+#         default: "false"
+#         required: false
+#       # Keep these options in step with the branch list in the `plan` job.
+#       branch:
+#         description: "Branch to translate, or all for every branch in the list"
+#         type: choice
+#         options:
+#           - "develop"
+#           - "releases/v2.0.x"
+#           - "releases/v1.3.x"
+#           - "all"
+#         default: "develop"
+#         required: false
+# 
+# # Scheduled runs fire every three hours and each one opens its own timestamped branch. Without a
+# # concurrency group two overlapping runs generate the same change and open two PRs for it, leaving
+# # the loser with an empty diff once the winner merges — see kestra-io/kestra#17822.
 concurrency:
   group: auto-translate-ui-keys-${{ github.ref_name }}
   cancel-in-progress: false

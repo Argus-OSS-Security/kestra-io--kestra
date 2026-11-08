@@ -1,11 +1,12 @@
 name: Publish docs
 
-on:
-  push:
-    branches: [develop]
-    paths: ['docs/**']
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [develop]
+#     paths: ['docs/**']
+#   workflow_dispatch:
+# 
 jobs:
   publish:
     runs-on: ubuntu-latest

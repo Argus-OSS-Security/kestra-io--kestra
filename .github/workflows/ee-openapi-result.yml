@@ -1,9 +1,10 @@
 name: EE OpenAPI result - comment on OSS PR
 
-on:
-  repository_dispatch:
-    types: [ee-openapi-result]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   repository_dispatch:
+#     types: [ee-openapi-result]
+# 
 concurrency:
   group: ee-openapi-result-${{ github.event.client_payload.pr_number }}
   cancel-in-progress: true

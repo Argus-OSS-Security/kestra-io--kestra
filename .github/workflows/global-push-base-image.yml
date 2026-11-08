@@ -3,22 +3,23 @@ name: Build and Push Base Image
 # Builds and pushes kestra-base image variants to GHCR.
 # Four variants: JRE 21/25 × no-python/python+kestra-pip.
 
-on:
-  schedule:
-    - cron: '0 2 * * *'
-  workflow_dispatch:
-    inputs:
-      uv-version:
-        description: 'uv version to install'
-        type: string
-        required: false
-        default: '0.6.17'
-      dry-run:
-        description: 'Build only, do not push'
-        type: boolean
-        required: false
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     - cron: '0 2 * * *'
+#   workflow_dispatch:
+#     inputs:
+#       uv-version:
+#         description: 'uv version to install'
+#         type: string
+#         required: false
+#         default: '0.6.17'
+#       dry-run:
+#         description: 'Build only, do not push'
+#         type: boolean
+#         required: false
+#         default: false
+# 
 jobs:
   build-and-push:
     name: Build and Push kestra-base (${{ matrix.variant.cache-tag }})
